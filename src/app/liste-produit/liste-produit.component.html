@@ -2,7 +2,12 @@
 
 <p>{{salutation}}</p>
 
+<!-- Exemple boucle, boucle sur soit même -->
 <article *ngFor="let unProduit of produit">
     <span>{{unProduit.nom}}</span>
     <span>{{unProduit.prix}}</span>
+    <!-- Two way binding -->
+    <input [(ngModel)] = unProduit.prix>
+    <!-- Exemple conditionnelle -->
+    <span *ngIf="unProduit.prix < 50">Rabais</span>
 </article>
