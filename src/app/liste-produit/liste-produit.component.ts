@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Produit } from '../produit';
 
 @Component({
   selector: 'app-liste-produit',
@@ -8,7 +9,8 @@ import { Component } from '@angular/core';
 export class ListeProduitComponent {
   salutation: String;
 
-  produit: Object[];
+  produit: Produit[];
+  // produit: Object[];
 
   constructor(){}
 
@@ -18,7 +20,7 @@ export class ListeProduitComponent {
     }
 
     this.produit = [...Array(15)].map((item, index)=>{
-      return {
+      return <Produit>{
               id: index + 1, 
               nom: "Mon produit " + index,
               prix: Math.ceil(Math.random() * 100)
