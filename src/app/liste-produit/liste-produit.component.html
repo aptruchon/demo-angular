@@ -1,13 +1,18 @@
 <h1>Mes produits qui ne sont pas des bières...</h1>
 
 <p>{{salutation}}</p>
+Est editable<input type="checkbox" [(ngModel)]="estEditable">
 
 <!-- Exemple boucle, boucle sur soit même -->
 <article *ngFor="let unProduit of produit">
-    <span>{{unProduit.nom}}</span>
-    <span>{{unProduit.prix}}</span>
-    <!-- Two way binding -->
-    <input [(ngModel)] = unProduit.prix>
-    <!-- Exemple conditionnelle -->
-    <span *ngIf="unProduit.prix < 50">Rabais</span>
+    Est editable<input type="checkbox" [(ngModel)]="unProduit.editable">
+    <ng-container *ngIf="estEditable || unProduit.editable">
+        Nom :<input [(ngModel)] = unProduit.nom>
+        Prix :<input [(ngModel)] = unProduit.prix>
+    </ng-container>
+
+    <ng-container *ngIf="!estEditable && !unProduit.editable">
+        <span>{{unProduit.nom}}</span>
+        <span>{{unProduit.prix}}</span>
+    </ng-container>
 </article>

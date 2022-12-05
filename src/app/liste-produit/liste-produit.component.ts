@@ -7,9 +7,9 @@ import { Produit } from '../produit';
   styleUrls: ['./liste-produit.component.scss']
 })
 export class ListeProduitComponent {
-  salutation: String;
-
-  produit: Produit[];
+  salutation: String = "";
+  estEditable: Boolean = false;
+  produit: Produit[] = [];
   // produit: Object[];
 
   constructor(){}
@@ -23,7 +23,8 @@ export class ListeProduitComponent {
       return <Produit>{
               id: index + 1, 
               nom: "Mon produit " + index,
-              prix: Math.ceil(Math.random() * 100)
+              prix: Math.ceil(Math.random() * 100),
+              editable: false,
             };
     })
     console.log(this.produit);

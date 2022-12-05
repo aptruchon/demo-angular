@@ -3,4 +3,5 @@ export interface Produit {
     id:Number;
     prix:Number;
     description?:String;
+    editable:Boolean;
 }
