@@ -1,3 +1,8 @@
 <h1>Mes produits qui ne sont pas des bières...</h1>
 
 <p>{{salutation}}</p>
+
+<article *ngFor="let unProduit of produit">
+    <span>{{unProduit.nom}}</span>
+    <span>{{unProduit.prix}}</span>
+</article>
