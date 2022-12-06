@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiBieroService } from '../api-biero.service';
 import { ConnecterService } from '../connecter.service';
 import { Produit } from '../produit';
 
@@ -13,21 +14,24 @@ export class ListeProduitComponent {
   produits: Produit[] = [];
   // produit: Object[];
 
-  constructor(private servConnecter: ConnecterService){}
+  // Injections de dépendances en paramètre du constructeur
+  constructor(private servConnecter: ConnecterService, private apiBiero: ApiBieroService){}
 
   ngOnInit(): void {
     if(this.salutation == ""){
       this.salutation = "Bonjour";
     }
+    
+    this.produits = this.apiBiero.getListe();
 
-    this.produits = [...Array(15)].map((item, index)=>{
-      return {
-              id: index + 1, 
-              nom: "Mon produit " + index,
-              prix: Math.ceil(Math.random() * 100),
-              editable: false,
-            };
-    })
+    // this.produits = [...Array(15)].map((item, index)=>{
+    //   return {
+    //           id: index + 1, 
+    //           nom: "Mon produit " + index,
+    //           prix: Math.ceil(Math.random() * 100),
+    //           editable: false,
+    //         };
+    // })
   }
 
   rendreEditable(event: MouseEvent){

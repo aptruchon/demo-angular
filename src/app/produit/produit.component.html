@@ -10,4 +10,5 @@
         <span>{{produit.prix}}</span>
     </ng-container>
     <span *ngIf="produit.prix < 50">Rabais</span>
+    <a routerLink="/produit/{{produit.id}}">Détails</a>
 </article>
