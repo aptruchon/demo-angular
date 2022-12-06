@@ -2,3 +2,5 @@
     <p>Nom: {{unProduit.nom}}</p>
     <p>Description: {{unProduit.description}}</p>
 </article>
+<a *ngIf="id != 0" routerLink="/produit/{{id-1}}">Précédent</a>
+<a routerLink="/produit/{{id-1+2}}">Suivant</a>
