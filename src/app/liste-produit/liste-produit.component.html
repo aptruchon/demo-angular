@@ -1,7 +1,7 @@
 <h1>Mes produits qui ne sont pas des bières...</h1>
 
 <p>{{salutation}}</p>
-Est éditable (tous)<input type="checkbox" (click)="rendreEditable()" [checked]="estEditable">
+Est éditable (tous)<input type="checkbox" (click)="rendreEditable($event)" [checked]="estEditable">
 
 <app-produit *ngFor="let unProduit of produits" [produit]="unProduit" [estEditable]="estEditable"></app-produit>
 

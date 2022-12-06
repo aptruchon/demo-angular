@@ -28,12 +28,12 @@ export class ListeProduitComponent {
               editable: false,
             };
     })
-    console.log(this.produits);
   }
 
-  rendreEditable(){
+  rendreEditable(event: MouseEvent){
     if(this.servConnecter.getEtatConnexion()){
       this.estEditable = !this.estEditable;
+      console.log(event);
     }
     else {
       this.estEditable = false;

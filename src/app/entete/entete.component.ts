@@ -18,6 +18,6 @@ export class EnteteComponent {
   changeConnexion(){
     this.estConnecte = !this.estConnecte;
     this.servConnecter.setEtatConnexion(this.estConnecte);
-    console.log(this.estConnecte);
+  
   }
 }
