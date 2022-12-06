@@ -22,7 +22,12 @@ export class ListeProduitComponent {
       this.salutation = "Bonjour";
     }
     
-    this.produits = this.apiBiero.getListe();
+    this.apiBiero.getProduits().subscribe((produits)=>{
+      this.produits = produits.data;
+      console.log(this.produits);
+      
+    });
+    // this.produits = this.apiBiero.getListe();
 
     // this.produits = [...Array(15)].map((item, index)=>{
     //   return {

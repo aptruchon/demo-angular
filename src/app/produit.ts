@@ -1,7 +1,7 @@
 export interface Produit {
-    nom:String;
-    id:Number;
-    prix:Number;
-    description?:String;
-    editable:Boolean;
+    id_biere: number;
+    nom: string;
+    brasserie: string;
+    description?: string;
+    
 }

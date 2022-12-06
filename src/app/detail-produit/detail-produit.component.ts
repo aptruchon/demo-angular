@@ -19,8 +19,11 @@ export class DetailProduitComponent {
     // Récupérer l'id en surveillant les changements dans l'url
     this.route.params.subscribe((params)=>{
       this.id = params["id"];
-      this.unProduit = this.apiBiero.getUnProduit(this.id);
+      // this.unProduit = this.apiBiero.getUnProduit(this.id);
       console.log(params);
+      this.apiBiero.getProduit(this.id).subscribe((produit:any) => {
+        this.unProduit = produit.data;
+      })
     });
 
     // Récupérer l'id SANS surveiller les changements dans l'url

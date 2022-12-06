@@ -10,6 +10,7 @@ import { ListeProduitComponent } from './liste-produit/liste-produit.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { NonTrouveComponent } from './non-trouve/non-trouve.component';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DetailProduitComponent } from './detail-produit/detail-produit.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,13 +2,12 @@
     <button (click)="changeEditable()">Editer (ou pas)</button>
     <ng-container *ngIf="estEditable">
         Nom :<input [(ngModel)] = produit.nom>
-        Prix :<input [(ngModel)] = produit.prix>
+        Brasserie :<input [(ngModel)] = produit.brasserie>
     </ng-container>
     
     <ng-container *ngIf="!estEditable">
         <span>{{produit.nom}}</span>
-        <span>{{produit.prix}}</span>
+            <span>{{produit.brasserie}}</span>
     </ng-container>
-    <span *ngIf="produit.prix < 50">Rabais</span>
-    <a routerLink="/produit/{{produit.id}}">Détails</a>
+    <a routerLink="/produit/{{produit.id_biere}}">Détails</a>
 </article>
