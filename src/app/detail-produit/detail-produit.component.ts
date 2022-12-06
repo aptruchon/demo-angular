@@ -12,10 +12,19 @@ export class DetailProduitComponent {
 
   constructor(private apiBiero: ApiBieroService, private route: ActivatedRoute){ }
 
+  id: number;
   unProduit: Produit;
   
   ngOnInit(){
-    let id = this.route.snapshot.params["id"];
-    this.unProduit = this.apiBiero.getUnProduit(id);
+    // Récupérer l'id en surveillant les changements dans l'url
+    this.route.params.subscribe((params)=>{
+      this.id = params["id"];
+      this.unProduit = this.apiBiero.getUnProduit(this.id);
+      console.log(params);
+    });
+
+    // Récupérer l'id SANS surveiller les changements dans l'url
+    // let id = this.route.snapshot.params["id"];
+    // this.unProduit = this.apiBiero.getUnProduit(id);
   }
 }
