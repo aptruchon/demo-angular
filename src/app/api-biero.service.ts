@@ -12,10 +12,7 @@ export class ApiBieroService {
   url: string = "http://127.0.0.1:8000/webservice/php/biere/";
 
   constructor(private http: HttpClient) {
-
-    
-
-
+    // ---- | Version statique | ----
     // this.produits = [...Array(15)].map((item, index)=>{
     //   return {
     //           id: index, 

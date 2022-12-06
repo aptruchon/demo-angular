@@ -1,6 +1,13 @@
 <article>
-    <p>Nom: {{unProduit.nom}}</p>
-    <p>Description: {{unProduit.description}}</p>
+    <!-- Version formGroup -->
+    <form [formGroup]="formModif">
+        <p>Nom: <input formControlName="nom"></p>
+        <p>Description: <input formControlName="description"></p>
+    </form>
+
+    <!-- Version ngModel -->
+    <!-- <p>Nom: <input [(ngModel)]="unProduit.nom"></p> -->
+    <!-- <p>Description: <input [(ngModel)]="unProduit.description"></p> -->
 </article>
 <a *ngIf="id != 0" routerLink="/produit/{{id-1}}">Précédent</a>
 <a routerLink="/produit/{{id-1+2}}">Suivant</a>
