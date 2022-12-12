@@ -15,6 +15,4 @@ export class ProduitComponent {
   changeEditable(){
     this.estEditable = !this.estEditable;
   }
-
-
 }

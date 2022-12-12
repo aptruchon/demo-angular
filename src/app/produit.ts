@@ -3,5 +3,4 @@ export interface Produit {
     nom: string;
     brasserie: string;
     description?: string;
-    
 }

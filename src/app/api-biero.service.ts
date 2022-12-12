@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Produit } from './produit';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext, HttpHeaders } from '@angular/common/http';
 import { ListeProduit } from './liste-produit';
 
 @Injectable({
@@ -29,6 +29,15 @@ export class ApiBieroService {
 
   getProduit(id: number):Observable<Produit>{
     return this.http.get<Produit>(this.url + id);
+  }
+  modifProduit(produit:Produit):Observable<any>{
+    let httpOptions = {
+      headers : new HttpHeaders({
+        'Content-type' : 'application/json',
+        "Authorization" : "Basic " + btoa('biero:biero')
+      })
+    }
+    return this.http.post<Produit>(this.url + produit.id_biere, produit, httpOptions);
   }
 
   // getListe():Produit[] {
