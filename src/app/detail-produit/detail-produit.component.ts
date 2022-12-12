@@ -41,7 +41,7 @@ export class DetailProduitComponent {
         this.formModif.setValue(this.unProduit);
         console.log(this.unProduit);
         console.log(this.unProduit.nom);
-        // console.log(this.unProduit.image);
+        console.log(this.unProduit.image);
         
         
         
@@ -68,5 +68,21 @@ export class DetailProduitComponent {
 
   annuler():void{
     this.formModif.setValue(this.unProduit);
+  }
+
+  delete():void{
+    this.apiBiero.deleteProduit(this.unProduit).subscribe((data:any)=>{
+      this.router.navigate(["produit"]);
+    });
+  }
+
+  soumettreNgModel():void{
+      this.apiBiero.modifProduit(this.unProduit).subscribe((data:any)=>{
+        console.log(data);
+        // Valider l'opération
+        if(data.data == this.unProduit.id_biere){
+          this.router.navigate(["produit"]);
+        }
+      })
   }
 }

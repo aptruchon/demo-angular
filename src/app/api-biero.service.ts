@@ -40,6 +40,16 @@ export class ApiBieroService {
     return this.http.post<Produit>(this.url + produit.id_biere, produit, httpOptions);
   }
 
+  deleteProduit(produit: Produit):Observable<any>{
+    let httpOptions = {
+      headers : new HttpHeaders({
+        'Content-type' : 'application/json',
+        "Authorization" : "Basic " + btoa('biero:biero')
+      })
+    }
+    return this.http.delete<Produit>(this.url + produit.id_biere, httpOptions);
+  }
+
   // getListe():Produit[] {
   //   return this.produits;
   // }

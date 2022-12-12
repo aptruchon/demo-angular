@@ -1,11 +1,12 @@
 <article>
     <!-- Version formGroup -->
-    <form [formGroup]="formModif">
+    <form *ngIf="unProduit.id_biere == id; else attente" [formGroup]="formModif">
         <p>Nom: <input formControlName="nom"><span *ngIf="!formModif.controls['nom'].valid">  Erreur</span></p>
         <p>Brasserie: <input formControlName="brasserie"></p>
         <p>Description: <textarea formControlName="description"></textarea></p>
         <button [disabled]="!formModif.dirty || !formModif.valid" (click)="modifier()">Modifier</button> | 
-        <button [disabled]="formModif.pristine" (click)="annuler()">Annuler</button>
+        <button [disabled]="formModif.pristine" (click)="annuler()">Annuler</button> | 
+        <button (click)="delete()">Supprimer</button>
     </form>
 
     <!-- Version ngModel -->
@@ -16,3 +17,14 @@
     <a *ngIf="id != 0" routerLink="/produit/{{id-1}}">Précédent</a> | 
     <a routerLink="/produit/{{id-1+2}}">Suivant</a>
 </p>
+
+<p>
+    Nom (ngModel) <input [(ngModel)]="unProduit.nom">
+</p>
+<button (click)="soumettreNgModel()">Soumettre modif ngModel</button>
+
+<ng-template #attente>
+    <article>
+        Données en chargement...
+    </article>
+</ng-template>
